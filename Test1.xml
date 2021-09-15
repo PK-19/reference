@@ -1,0 +1,5 @@
+<Response>
+   <Say voice="alice">Thanks for the call. Happy to help you. Hope, you will have excellent service from our side.</Say>
+   <Pause length="2"/>
+   <Say voice="alice">Thank You...!</Say>
+</Response>
