@@ -1,36 +1,3 @@
-
-Steps to Install rabbitMQ
-==========================
-git clone https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git
-cd AMQP-CPP/
-mkdir build
-cd build/
-cmake .. -DAMQP-CPP_BUILD_SHARED=ON -DAMQP-CPP_LINUX_TCP=ON -DOPENSSL_ROOT_DIR=/usr/local/ssl/bin -DOPENSSL_CRYPTO_LIBRARY=/usr/local/ssl/lib -DOPENSSL_INCLUDE_DIR=/usr/local/ssl/include
-cmake --build . --target install
-
-Steps to Install NGINX
-=======================
-wget https://ftp.pcre.org/pub/pcre/pcre-8.45.tar.gz --no-check-certificate
-tar -zxf pcre-8.45.tar.gz
-cd pcre-8.45/
-./configure
-make
-sudo make install
-
-wget https://zlib.net/fossils/zlib-1.2.11.tar.gz --no-check-certificate
-tar -zxf zlib-1.2.11.tar.gz
-cd zlib-1.2.11/
-./configure
-make
-sudo make install
-
-wget https://nginx.org/download/nginx-1.18.0.tar.gz --no-check-certificate
-tar zxf nginx-1.18.0.tar.gz
-cd nginx-1.18.0/
-./configure
-make
-sudo make install
-
 Cmake Installation
 ==================
 wget https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3.tar.gz --no-check-certificate
@@ -65,6 +32,38 @@ cd objdir
 ../gcc-5.4.0/configure --prefix=$HOME/gcc-5.4.0 --disable-nls --enable-languages=c,c++ --with-ld=/bin/ld --with-nm=/bin/nm --with-as=/usr/bin/as --disable-multilib
 make
 make install
+
+Steps to Install rabbitMQ
+==========================
+git clone https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git
+cd AMQP-CPP/
+mkdir build
+cd build/
+cmake .. -DAMQP-CPP_BUILD_SHARED=ON -DAMQP-CPP_LINUX_TCP=ON -DOPENSSL_ROOT_DIR=/usr/local/ssl/bin -DOPENSSL_CRYPTO_LIBRARY=/usr/local/ssl/lib -DOPENSSL_INCLUDE_DIR=/usr/local/ssl/include
+cmake --build . --target install
+
+Steps to Install NGINX
+=======================
+wget https://ftp.pcre.org/pub/pcre/pcre-8.45.tar.gz --no-check-certificate
+tar -zxf pcre-8.45.tar.gz
+cd pcre-8.45/
+./configure
+make
+sudo make install
+
+wget https://zlib.net/fossils/zlib-1.2.11.tar.gz --no-check-certificate
+tar -zxf zlib-1.2.11.tar.gz
+cd zlib-1.2.11/
+./configure
+make
+sudo make install
+
+wget https://nginx.org/download/nginx-1.18.0.tar.gz --no-check-certificate
+tar zxf nginx-1.18.0.tar.gz
+cd nginx-1.18.0/
+./configure
+make
+sudo make install
 
 consul Installation
 ====================
