@@ -65,3 +65,8 @@ cd objdir
 ../gcc-5.4.0/configure --prefix=$HOME/gcc-5.4.0 --disable-nls --enable-languages=c,c++ --with-ld=/bin/ld --with-nm=/bin/nm --with-as=/usr/bin/as --disable-multilib
 make
 make install
+
+consul Installation
+====================
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+sudo yum -y install consul
