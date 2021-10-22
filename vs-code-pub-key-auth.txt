@@ -1,5 +1,6 @@
 Windows to Linux
 ================
+$ssh-keygen -t rsa -b 4096
 $USER_AT_HOST="root@192.168.154.214"
 $PUBKEYPATH="$HOME\.ssh\id_rsa.pub"
 
