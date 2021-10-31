@@ -69,3 +69,12 @@ consul Installation
 ====================
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
 sudo yum -y install consul
+
+Prometheus - Installation steps
+==============================
+Download latest version of prometheus from https://prometheus.io/download/
+
+tar xvfz prometheus-*.tar.gz
+cd prometheus-*
+To start the prometheus
+	./prometheus --config.file=prometheus.yml
