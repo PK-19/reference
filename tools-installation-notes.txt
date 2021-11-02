@@ -78,3 +78,8 @@ tar xvfz prometheus-*.tar.gz
 cd prometheus-*
 To start the prometheus
 	./prometheus --config.file=prometheus.yml
+
+Grafana - Installation Steps
+============================
+wget https://dl.grafana.com/oss/release/grafana-8.2.2-1.x86_64.rpm
+sudo yum localinstall grafana-8.2.2-1.x86_64.rpm
