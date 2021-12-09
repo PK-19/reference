@@ -79,6 +79,16 @@ Notes:
     }
 }
 
+	Logging:
+		./configure --with-debug ...
+		error_log /path/to/log debug;
+		
+		Notes:
+			if debug level is not specified then logging will be disabled
+			Logging can be enabled for specific clients (debug_connection 192.168.1.1;)
+			Logging to a cyclic memory buffer
+
+
 consul - Installation steps
 ===========================
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
