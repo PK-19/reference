@@ -61,7 +61,7 @@ sudo make install
 wget https://nginx.org/download/nginx-1.18.0.tar.gz --no-check-certificate
 tar zxf nginx-1.18.0.tar.gz
 cd nginx-1.18.0/
-./configure
+./configure --with-http_auth_request_module --with-http_stub_status_module --with-debug
 make
 sudo make install
 
@@ -87,6 +87,34 @@ Notes:
 			if debug level is not specified then logging will be disabled
 			Logging can be enabled for specific clients (debug_connection 192.168.1.1;)
 			Logging to a cyclic memory buffer
+	Auth Module:
+		 --with-http_auth_request_modul
+		 
+		 auth_request /vouch-validate;
+
+location = /vouch-validate {
+  # This address is where Vouch will be listening on
+  proxy_pass http://127.0.0.1:9090/validate;
+  proxy_pass_request_body off; # no need to send the POST body
+
+  proxy_set_header Content-Length "";
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header X-Forwarded-Proto $scheme;
+
+  # these return values are passed to the @error401 call
+  auth_request_set $auth_resp_jwt $upstream_http_x_vouch_jwt;
+  auth_request_set $auth_resp_err $upstream_http_x_vouch_err;
+  auth_request_set $auth_resp_failcount $upstream_http_x_vouch_failcount;
+}
+
+error_page 401 = @error401;
+
+# If the user is not logged in, redirect them to Vouch's login URL
+location @error401 {
+  return 302 https://login.avocado.lol/login?url=https://$http_host$request_uri&vouch-failcount=$auth_resp_failcount&X-Vouch-Token=$auth_resp_jwt&error=$auth_resp_err;
+}
+
 
 
 consul - Installation steps
